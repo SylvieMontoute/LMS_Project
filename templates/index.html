@@ -4,8 +4,17 @@
 {{ super()}}
 {% endblock head %}
 {% block content %}
-<h1>Welcome to School of Programming and Software Devlopment</h1>
-<p>Testing the content area</p>
+<div align="center">
+    <div align="center" class="border">
+        <div class="header">
+            <h1 class="word">Index</h1>
+        </div></br></br></br>
+            <h1 class="bottom">
+                Hi {{session.username}}!!</br></br> Welcome to the index page...
+            </h1></br></br></br>
+            <a href="{{ url_for('logout') }}" class="btn">Logout</a>
+    </div>
+</div>
 {% endblock content %}
 {% block footer %}
 {{ super()}}

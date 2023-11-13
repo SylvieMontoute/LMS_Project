@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %} Login {% endblock title%}
+{% block head %}
+{{ super() }}
+{% endblock head %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="card shadow-lg border-0 rounded-lg mt-5 bg-dark text-white">
+        <div class="card-header">
+            <h3 class="text-center text-white font-weight-light my-4">Login</h3>
+        </div>
+        <div class="card-body bg-white text-dark">
+            <div class ="container py-5" style = "background: linear-gradient(to right, hsl(290, 92%, 15%), #97ab8d);">
+                <div class ="container py-5 bg-white">
+                <form action="{{ url_for('login') }}" method="post">
+                <div class="msg">{{ msg }}</div>
+                <div class="mb-5">
+                <label for ="username">Username</label>
+                <input id="username" name="username" type="text" placeholder="Enter Your Username"
+class="textbox"/>
+            </div>
+            <div class="mb-5">
+                <label for ="password">Password</label>
+                <input id="password" name="password" type="password" placeholder="Enter Your Password"
+class="textbox"/>
+            </div>
+                <input type="submit" class="btn btn-secondary" value="Sign In"></br></br>
+                <button type="button" class="cancelbtn">Cancel</button>
+                </form>
+            </div>
+         </div>
+{% endblock content %}
+{% block footer %}
+<div class="small"><a href="{{url_for('register')}}">Need an account? Sign up!</a></div>
+{{ super() }}
+{% endblock footer %}
