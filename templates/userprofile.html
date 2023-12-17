@@ -1,0 +1,109 @@
+{% extends "homebase.html" %}
+{% block head %}
+    <meta name = "description" content="Home page for St. Andrew's HighSchool Educational Platform">
+{% endblock head %}
+{% block title %}<title>Home</title>{% endblock title %}
+{% block javascripts %}
+<script src = "{{ url_for('static', filename='tabs.js')}}"></script>
+{% endblock javascripts %}
+{% block content %}
+<div class="container-fluid">
+    <h1 class="mt-4">User data collection profile</h1>
+    <h3>Personal Information</h3>
+    <div id="wrapper2">
+
+        <div id="tabContainer">
+        <div id="tabs">
+            <ul>
+                    <li id="tabHeader_1">Personal Profile</li>
+                    <li id="tabHeader_2">Courses</li>
+                    <li id="tabHeader_3">Enrollments</li>
+                    <li id="tabHeader_4">Course Material</li>
+                    <li id="tabHeader_5">Student Progress</li>
+                    <li id="tabHeader_6">Performance Reports</li>
+                                
+            </ul>
+        </div>
+
+        <div id="tabscontent">
+            
+            <nav class="tabpage" id="tabpage_1">
+                <form method ="post" action ="/update_users">
+                <p> The retrieved data is displayed here</p>
+                <div class ="form-group">
+                    <label for="user_id">User ID</label>
+                    <input type="text" class="form-control" id="client_id" name="unique_id" value="{{ client.unique_id }}" readonly>
+                </div>
+                <div class ="form-group">
+                    <label for="first_name">First Name</label>
+                    <input type="text" class="form-control" id="first_name" name="first_name" value = "{{ client.first_name }}">
+                </div>
+                <div class ="form-group">
+                    <label for="middle_name">Middle Name</label>
+                    <input type="text" class="form-control" id="middle_name" name="middle_name" value = "{{ client.middle_name }}">
+                </div>
+                <div class ="form-group">
+                    <label for="last_name">Last Name</label>
+                    <input type="text" class="form-control" id="last_name" name="last_name" value = "{{ client.last_name }}">
+                </div> 
+    
+                <div class ="form-group">
+                    <label for="dob">Date of Birth</label>
+                    <input type="datetime-local" class="form-control" id="dob" name="dob" value = "{{ client.date_of_birth }}">
+                </div> 
+    
+                <div class ="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="text" class="form-control" id="phone" name="phone" value ="{{ client.phone_number }}">
+                </div>
+                <hr/>
+                <div class ="form-group">
+                    <label for="address">Address</label>
+                    <input type="text" class="form-control" id="address" name="line1" value ="{{ client.address }}">
+                    <input type="text" class="form-control" name="city" value ="{{ client.city }}">
+                    <input type="text" class="form-control" name="state" value="{{ client.state}}">
+                    <input type="text" class="form-control" name="zip-code" value="{{client.zip_code}}">
+                    <input type="text" class="form-control" name="country" value="{{client.country}}">
+                </div>
+                <hr/>
+                <div class ="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" class="form-control" id="email" name="email" value = "{{ client.email }}"">
+                </div>
+                <hr/>
+                <div class ="form-group">
+                    <label for="role">Role</label>
+                    <input type="radio"  id="role" name="role" value = "student"> Student
+                    <input type="radio" id="role" name="role" value = "teacher"> Teacher
+                </div>
+                <hr/>
+                <input type ="submit" value = "Update User" class ="btn btn-success"> 
+            </nav>
+            <nav class="tabpage" id="tabpage_2">
+                <p>Courses</p>      
+            </nav>
+
+            <nav class="tabpage" id="tabpage_3">
+                <p>Enrollments</p>
+            </nav>
+
+            <nav class="tabpage" id="tabpage_4">
+                <p>Course Material</p> 
+            </nav>
+            
+            <nav class="tabpage" id="tabpage_5">
+                <p>Student Progress</p> 
+            </nav>
+
+            <nav class="tabpage" id="tabpage_6">
+                <p>Performance Reports</p> 
+            </nav>
+
+        </div>
+        </div>
+
+    </div>
+
+
+</div>
+{% endblock content %}

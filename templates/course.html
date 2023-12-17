@@ -7,22 +7,26 @@
 <div class="row justify-content-center">
     <div class="card shadow-lg border-0 rounded-lg mt-5 bg-danger text-white">
         <div class="card-header">
-            <h3 class="text-center text-white font-weight-light my-4">Create Course</h3>
+            <h3 class="text-center text-white font-weight-light my-4">Course Overview</h3>
         </div>
         <div class="card-body bg-white text-dark">
             <div class ="container py-5" style = "background: linear-gradient(to right, hsl(15, 71%, 37%), #97ab8d);">
                 <div class ="container py-5 bg-white">
-            <form action="{{ url_for('register') }}" method="post">
+            <form action="{{ url_for('course') }}" method="post">
             <div class="msg">{{ msg }}</div>
             <div class="mb-5">
-                <label for ="coursename">Course Name</label>
-                <input id="coursename" name="coursename" type="text" placeholder="Enter the Course Name"
+                <label for ="course_name">Course Name</label>
+                <input id="course_name" name="course_name" type="text" placeholder="Enter the Course Name"
 class="textbox"/></br></br>
             </div>
             <div class="mb-5">
-                <label for ="coursecontent">Course Content</label>
-                <input id="coursecontent" name="coursecontent" type="text" placeholder="Enter Course Content"
+                <label for ="course_id">Course ID</label>
+                <input type="text" class="form-control" id="course_id" name="course_id" value="{{ course_id }}" >
 class="textbox"/></br></br>
+</div>
+<div class="mb-5">
+    <label for ="course_id">Course ID</label>
+    <input type="text" class="form-control" id="course_id" name="course_id" value="{{ course_id }}" >
             </div>
                 <input type="submit" class="btn btn-danger" value="Create Course"></br>
             </form>

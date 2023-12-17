@@ -1,21 +1,17 @@
 {% extends "base.html" %}
-{% block title %}Home{% endblock title %}
 {% block head %}
-{{ super()}}
+    <meta name = "description" content="Home page for St. Andrew's HighSchool Educational Platform">
 {% endblock head %}
+{% block title %}<title>Home</title>{% endblock title %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ url_for('static', filename='login.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='font-awesome/css/font-awesome.min.css')}}">
+{% endblock stylesheets %}
 {% block content %}
-<div align="center">
-    <div align="center" class="border">
-        <div class="header">
-            <h1 class="word">Index</h1>
-        </div></br></br></br>
-            <h1 class="bottom">
-                Hi {{session.username}}!!</br></br> Welcome to the index page...
-            </h1></br></br></br>
-            <a href="{{ url_for('logout') }}" class="btn">Logout</a>
-    </div>
+
+<div class="container-fluid mt-3">
+    <h1 class="mt-4">St. Andrew's HighSchool Educational Platform</h1>
+    <p>St. Andrew's HighSchool Educational Platform is a web application
+        that is designed to provide a platform for managing and delivering educational content.</p>
 </div>
 {% endblock content %}
-{% block footer %}
-{{ super()}}
-{% endblock footer %}

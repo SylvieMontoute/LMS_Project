@@ -1,57 +1,39 @@
 {% extends "base.html" %}
-{% block title %} Login {% endblock title%}
 {% block head %}
-{{ super() }}
+    <meta name = "description" content="Home page for St. Andrew's HighSchool Educational Platform">
 {% endblock head %}
+{% block title %}<title>Home</title>{% endblock title %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ url_for('static', filename='login.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='font-awesome/css/font-awesome.min.css')}}">
+{% endblock stylesheets %}
 {% block content %}
-<div class="row justify-content-center">
-    <div class="card shadow-lg border-0 rounded-lg mt-5 bg-danger text-white">
-        <div class="card-header">
-            <h3 class="text-center text-white font-weight-light my-4">Register</h3>
-        </div>
-        <div class="card-body bg-white text-dark">
-            <div class ="container py-5" style = "background: linear-gradient(to right, hsl(15, 71%, 37%), #97ab8d);">
-                <div class ="container py-5 bg-white">
-            <form action="{{ url_for('register') }}" method="post">
-            <div class="msg">{{ msg }}</div>
-            <div class="mb-5">
-                <label for ="username">Username</label>
-                <input id="username" name="username" type="text" placeholder="Enter Your Username"
-class="textbox"/></br></br>
-            </div>
-            <div class="mb-5">
-                <label for ="cusername">Confirm Username</label>
-                <input id="cusername" name="cusername" type="text" placeholder="confirm your username"
-class="textbox"/></br></br>
-            </div>
-            <div class="mb-5">
-                <label for ="password">Password</label>
-                <input id="password" name="password" type="password" placeholder="Enter your password"
-class="textbox"/></br></br>
-            </div>
-            <div class="mb-5">
-                <label for ="cpassword">Confirm Password</label>
-                <input id="cpassword" name="cpassword" type="password" placeholder="confirm your password"
-class="textbox"/></br></br>
-            </div>
-            <div class="mb-5">
-                <label for ="email">Email</label>
-                <input id="email" name="email" type="email" placeholder="Enter your email address"
-class="textbox"/></br></br>
-            </div>
-            <div class="mb-5">
-                <label for ="role">Role</label>
-                <input id="role" name="role" type="text" placeholder="Teacher or Student"
-class="textbox"/></br></br>
-            </div>
-                <input type="submit" class="btn btn-danger" value="Sign Up"></br>
-                <button type="button" class="cancelbtn">Cancel</button>
-            </form>
-       </div>
+<div class="login">
+    <h1>Login</h1>
+    <div class="links">
+        <a href="{{ url_for('login') }}">Login</a>
+        <a href="{{ url_for('registration') }}" class="active">Register</a>
     </div>
+    <form action="/registration" method="post">
+        <div class="msg">{{ msg }}</div>
+        <label for="username">
+            <i class="fa fa-user"></i>
+        </label>
+        <input type="text" name="username" placeholder="Username" id="username" required>
+        <label for="cusername">
+            <i class="fa fa-user"></i>
+        </label>
+        <input type="text" name="cusername" placeholder="Confirm Username" id="cusername" required>
+        <label for="password">
+            <i class="fa fa-lock"></i>
+        </label>
+        <input type="password" name="password" placeholder="Password" id="password" required>
+        <label for="cpassword">
+            <i class="fa fa-lock"></i>
+        </label>
+        <input type="password" name="cpassword" placeholder="Confirm Password" id="cpassword" required>
+        
+        <input type="submit" value="Register" name = "register">
+    </form>
 </div>
 {% endblock content %}
-{% block footer %}
-<p class="bottom">Already have an account? <a class="bottom" href="{{url_for('login')}}"> Sign In here</a></p>
-{{ super() }}
-{% endblock footer %}

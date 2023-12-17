@@ -1,36 +1,32 @@
 {% extends "base.html" %}
-{% block title %} Login {% endblock title%}
 {% block head %}
-{{ super() }}
+    <meta name = "description" content="Home page for St. Andrew's HighSchool Educational Platform">
 {% endblock head %}
+{% block title %}<title>Home</title>{% endblock title %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ url_for('static', filename='login.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='font-awesome/css/font-awesome.min.css')}}">
+{% endblock stylesheets %}
 {% block content %}
-<div class="row justify-content-center">
-    <div class="card shadow-lg border-0 rounded-lg mt-5 bg-dark text-white">
-        <div class="card-header">
-            <h3 class="text-center text-white font-weight-light my-4">Login</h3>
-        </div>
-        <div class="card-body bg-white text-dark">
-            <div class ="container py-5" style = "background: linear-gradient(to right, hsl(290, 92%, 15%), #97ab8d);">
-                <div class ="container py-5 bg-white">
-                <form action="{{ url_for('login') }}" method="post">
-                <div class="msg">{{ msg }}</div>
-                <div class="mb-5">
-                <label for ="username">Username</label>
-                <input id="username" name="username" type="text" placeholder="Enter Your Username"
-class="textbox"/>
-            </div>
-            <div class="mb-5">
-                <label for ="password">Password</label>
-                <input id="password" name="password" type="password" placeholder="Enter Your Password"
-class="textbox"/>
-            </div>
-                <input type="submit" class="btn btn-secondary" value="Sign In"></br></br>
-                <button type="button" class="cancelbtn">Cancel</button>
-                </form>
-            </div>
-         </div>
+<div class="login">
+    <h1>Login</h1>
+    <div class="msg">{{ msg }}</div>
+    <div class="links">
+        <a href="{{ url_for('login') }}" class="active">Login</a>
+        <a href="{{ url_for('registration') }}">Register</a>
+    </div>
+    <form action="{{ url_for('login') }}" method="post">
+        
+        <label for="username">
+            <i class="fa fa-user"></i>
+        </label>
+        <input type="text" name="username" placeholder="Username" id="username" required>
+        <label for="password">
+            <i class="fa fa-lock"></i>
+        </label>
+        <input type="password" name="password" placeholder="Password" id="password" required>
+        
+        <input type="submit" value="Login">
+    </form>
+</div>
 {% endblock content %}
-{% block footer %}
-<div class="small"><a href="{{url_for('register')}}">Need an account? Sign up!</a></div>
-{{ super() }}
-{% endblock footer %}
